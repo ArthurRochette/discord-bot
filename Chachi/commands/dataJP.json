@@ -1,0 +1,58 @@
+//that smell France here, this is a config file , or more a data storage file, for a game "Juste prix" -> "right price", in the objet field you put the description of an object and below, in the "prix" field you put the price
+// the bot gonna pick randomly an object and send it to the master of this game '(in private message)
+
+
+{
+	"data": [
+		{
+			"objet": "",
+			"prix": ""
+		},
+		{
+			"objet": "",
+			"prix": ""
+
+		},
+		{
+			"objet": "",
+			"prix": ""
+
+		},
+		{
+			"objet": "",
+			"prix": ""
+		},
+		{
+			"objet": "",
+			"prix": ""
+		},
+		{
+			"objet": "",
+			"prix": ""
+
+		},
+		{
+
+			"objet": "",
+			"prix": ""
+
+		},
+		{
+
+			"objet": "",
+			"prix": ""
+
+		},
+		{
+			"objet": "",
+			"prix": ""
+
+		},
+		{
+			"objet": "",
+			"prix": ""
+		}
+	]
+
+
+}
