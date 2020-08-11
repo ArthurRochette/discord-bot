@@ -1,0 +1,17 @@
+{
+  "name": "chachi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rochette A.",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "node-opus": "^0.3.3",
+    "yt-search": "^0.4.1",
+    "ytdl-core": "^1.0.5"
+  }
+}
