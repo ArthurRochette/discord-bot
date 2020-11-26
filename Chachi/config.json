@@ -1,11 +1,11 @@
 {
-  //Ahoy, Me Hearties!
-  //here is the config file for the bot
-
-
-  "mainvoc": "", // id ofthe main channel, the bot will join it when he start
-  "prefix": "", // prefix to call the bot, Pikachu let's fight !
-  "token": "", // token of the bot, this is a magic stick to give life. (HAHA magic stick (evil dev laugh)). go here to create it : https://discord.com/developers/applications
-  "owner": "" // id of the owner of the bot, like that, it's gonna be you're best friend, or just a algorithm virtually following you in the void of a non existent world, internet. 
-
+  "serverid":"",
+  "mainvoc": "", 
+  "prefix": "chachi", 
+  "token": "", 
+  "owner": "",
+  "confessChannel":"",
+  "confessRole":"",
+  "machine1":"",
+  "machine2":""
 }
