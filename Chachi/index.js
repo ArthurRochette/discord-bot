@@ -45,7 +45,7 @@ bot.on('message', msg => {
 
 		console.log("message de " + msg.author.username + " a " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
 
-		//lets try if a .js function file is named with the lowered case command 
+		//lets try if a .js function file is named by the lowered case command 
 		try {
 			let commandFile = require(`./commands/${command}.js`);
 			commandFile.run(bot, msg, args);
