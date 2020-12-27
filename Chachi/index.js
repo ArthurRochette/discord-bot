@@ -44,7 +44,7 @@ bot.on('message', msg => {
 		const command = args[1].toLowerCase(); // normalization of the received message (lower case)
 		var date = new Date();
 
-		console.log("message from " + msg.author.username + " a " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());//console log
+		console.log("message de " + msg.author.username + " a " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());//console log
 
 		//lets try if a .js function file is named with the lowered case command 
 		try {
@@ -81,18 +81,17 @@ var intervalHNY = global.setInterval(HappyNewYear, 60000);
 
 function HappyNewYear(){
 	var date = new Date();
-	console.log("checked");
 	if(date.getMonth() == 11){
-		console.log("month ok")
-		console.log(date.getDate())
 		if(date.getDate() == 31){
-			console.log("day ok")
 			if(date.getHours() == 23 && date.getMinutes() == 59){
-				bot.channels.get(mainText).send("Happy New Year !! <:partying_face:792785418802167808>");
+				bot.channels.get(mainText).send("Bonne Année !! <:partying_face:792785418802167808>");
 			}
 		}
 	}
 }
 
 
-bot.login(config.token);
+bot.login(config.token, function(){
+	const queue = require("./commands/queue")
+	queue.run(undefined,undefined,undefined,undefined);
+});

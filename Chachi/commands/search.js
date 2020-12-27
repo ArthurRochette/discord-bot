@@ -1,62 +1,37 @@
-const search = require('../node_modules/yt-search');
 
+const Discord = require('discord.js');
+exports.run = async function (bot, msg, args) {
+    console.log("enter")
+    const yts = require('yt-search')
 
-exports.run = (bot, msg, args) => {
-    console.log("dede");
-    args[1] = null;
-    msg.channel.send(args.join(' '));
+    const r = await yts(args.join(' '))
 
-    const search = require('../node_modules/yt-search');
-    const r = search(args.join(' '));
+    const videos = r.videos.slice(0, 3)
     
-    const videos = r.videos.slice(0, 5);
-
-
+    const embed = new Discord.MessageEmbed()
+        .setColor(0x50E3C2)
+        .setThumbnail("https://raw.githubusercontent.com/ArthurSenpaii/ChachiDB/master/Chachi/cromulonhead.png");
     videos.forEach(function (v) {
-        resp += `**[${parseInt(i) + 1}]:** \`${v.title}\`\n`;
+        embed.addField(v.title, `By ${v.author.name},\t duration: ${v.timestamp}, \t views: ${v.views}`);
     });
-    resp += `\n**Choisis entre \`1-${videos.length + 1}\``;
 
-    msg.channel.send(resp);
+    msg.channel.send("Voici votre recherche señor", { embed });
+    msg.channel.send("Repond juste par 1, 2, ou 3")
 
-    const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
+    const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0; //check if the value answered by user is correct
 
-    const collector = msg.channel.createMessageCollector(filter);
+    const collector = msg.channel.createMessageCollector(filter); //Create collector with filter
+
     collector.videos = videos;
 
     collector.once('collect', function (m) {
         let play = require('./play.js');
-        args[2] = "https://www.youtube.com" + [this.videos[parseInt(m.content) - 1].url];
+        args[2] =  [this.videos[parseInt(m.content) - 1].url];
+        
         play.run(bot, msg, args);
-        msg.channel.send("https://www.youtube.com" + [this.videos[parseInt(m.content) - 1].url]);
-    });
-
-    search(args.join(' '), function (err, res) {
-        if (err) return console.log("Erreur search yt");
-
-
-        let videos = res.videos.slice(0, 5);
-
-        let resp = "";
-        for (var i in videos) {
-            resp += `**[${parseInt(i) + 1}]:** \`${videos[i].title}\`\n`;
-        }
-        resp += `\n**Choisis entre \`1-${videos.length}\``;
-
-        msg.channel.send(resp);
-
-        const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0;
-
-        const collector = msg.channel.createMessageCollector(filter);
-
-        collector.videos = videos;
-
-        collector.once('collect', function (m) {
-            let play = require('./play.js');
-            args[2] = "https://www.youtube.com" + [this.videos[parseInt(m.content) - 1].url];
-            play.run(bot, msg, args);
-            msg.channel.send("https://www.youtube.com" + [this.videos[parseInt(m.content) - 1].url]);
-        });
+        msg.channel.send([this.videos[parseInt(m.content) - 1].url]);
     });
 
 };
+
+
