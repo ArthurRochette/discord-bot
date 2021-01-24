@@ -15,7 +15,8 @@ bot.on('ready', () => {
 
 bot.on('message', msg => {
 
-	if (msg.author.equals(bot.user)) return; // return si own message (seems logic no ??)
+
+	if (msg.author.equals(bot.user)) return; // return if own message
 
 	if (msg.channel.type === "dm") {// if private message
 		if (msg.content.startsWith("confess")) {
@@ -29,19 +30,24 @@ bot.on('message', msg => {
 				msg.react("🤒");
 			}
 		}
+		else if(msg.author.id = config.owner){
+			if(msg.content.startsWith("debug")){
+				msg.contet
+			}
+		}
 		commandFile = require(`./commands/discussion.js`);
 		commandFile.run(bot, msg, args);
 	}
 
 
 	if (msg.content.startsWith(config.prefix)) { //mention of the bot
-		var args = msg.content.substring(config.prefix.length).split(" ");// so clear him ! WE DON'T MORE NEED THAT 
+		var args = msg.content.substring(config.prefix.length).split(" ");//remove prefix + split into args
 
 		if (args[1] === undefined){ // if the message is not identified, we don't know why ¯\_(ツ)_/¯ but in case of we don't know
 			msg.react("😏");
 			return;
 		}
-		const command = args[1].toLowerCase(); // normalization of the received message (lower case)
+		const command = args[1].toLowerCase(); // lowered case message
 		var date = new Date();
 
 		console.log("message de " + msg.author.username + " a " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());//console log
@@ -51,7 +57,7 @@ bot.on('message', msg => {
 			let commandFile = require(`./commands/${command}.js`);
 			commandFile.run(bot, msg, args);
 		} catch (err) {
-			console.log(err);
+			
 			commandFile = require(`./commands/discussion.js`);
 			commandFile.run(bot, msg, args);
 		}
@@ -65,8 +71,6 @@ bot.on('end', msg => {
 
 });
 
-
-
 bot.on('disconnect', function () {
 	var date = new Date();
 	console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " " + "bot is offline ! ! ! ! !");//time
@@ -76,19 +80,6 @@ bot.on('reconnecting', function () {
 	var date = new Date();
 	console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " " + " trying to reconnect !!");
 });
-
-var intervalHNY = global.setInterval(HappyNewYear, 60000);
-
-function HappyNewYear(){
-	var date = new Date();
-	if(date.getMonth() == 11){
-		if(date.getDate() == 31){
-			if(date.getHours() == 23 && date.getMinutes() == 59){
-				bot.channels.get(mainText).send("Bonne Année !! <:partying_face:792785418802167808>");
-			}
-		}
-	}
-}
 
 
 bot.login(config.token, function(){

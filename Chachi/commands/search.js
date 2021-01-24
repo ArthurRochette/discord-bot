@@ -15,8 +15,8 @@ exports.run = async function (bot, msg, args) {
         embed.addField(v.title, `By ${v.author.name},\t duration: ${v.timestamp}, \t views: ${v.views}`);
     });
 
-    msg.channel.send("Voici votre recherche señor", { embed });
-    msg.channel.send("Repond juste par 1, 2, ou 3")
+    msg.channel.send("Here your search señor", { embed });
+    msg.channel.send("Answer by 1, 2, ou 3")
 
     const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0; //check if the value answered by user is correct
 

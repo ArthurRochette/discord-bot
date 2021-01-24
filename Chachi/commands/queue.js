@@ -16,6 +16,6 @@ exports.run = async (bot, msg, args,playNext) => {
         play.run(bot, msg, args);
         msg.channel.send("Playing:"+args[2])
     }else {
-        msg.channel.send(queue)//a mettre en boté
+        msg.channel.send(queue)
     }
 };
