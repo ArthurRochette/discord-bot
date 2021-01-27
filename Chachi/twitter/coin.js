@@ -3,9 +3,9 @@ exports.run = (_callback) => {
 
     let face = Math.floor(Math.random() * 2)+1;
     if(face == 1){
-        _callback("C'est face !")
+        _callback("It's tail")
     }else {
-        _callback("C'est pile !")
+        _callback("It's head")
     }
     
 
