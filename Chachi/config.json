@@ -1,12 +1,9 @@
 {
-  "serverid":"",
-  "mainvoc": "", 
-  "maintext":"",
-  "prefix": "chachi", 
-  "token": "", 
+  "prefix": "chachi",
+  "twittertext": "",
+  "twitterBotName": "",
+  "token": "",
   "owner": "",
-  "confessChannel":"",
-  "confessRole":"",
-  "machine1":"",
-  "machine2":""
+  "confessChannel": "",
+  "confessRole": ""
 }

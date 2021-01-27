@@ -14,13 +14,13 @@ exports.run = async (bot, msg, args) => {
     let connection;
 
     if (!msg.member.voice.channel) {
-        return msg.channel.send('Join a channel before !');
+        return msg.channel.send('Rejoins un channel avant');
     }
 
     let validate = ytdl.validateURL(args[2].toString());
     if (!validate) {
-        console.log("Player error: " + args[2] + " broken url");
-        return msg.channel.send("URL isn't workin")
+        console.log("Player error: " + args[2] + " borken url");
+        return msg.channel.send('url cassé bro')
     }
     let info = await ytdl.getInfo(args[2].toString())
 
@@ -41,6 +41,7 @@ exports.run = async (bot, msg, args) => {
                 }
             });
         }catch(event){
+            console.log("preevent!!"+event)
             const debug = require("./debug")
             debug.run(bot,msg,args,event)
             return
@@ -60,7 +61,7 @@ exports.run = async (bot, msg, args) => {
             file.run(bot,msg,args,1)
         },duration*1000)
     } else {
-        msg.channel.send("Added to queue !")
+        msg.channel.send("Ajouté a la queue !")
         file.queue.push(args[2])
     }
 

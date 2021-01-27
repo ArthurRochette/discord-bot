@@ -10,13 +10,13 @@ exports.run = async function (bot, msg, args) {
     
     const embed = new Discord.MessageEmbed()
         .setColor(0x50E3C2)
-        .setThumbnail("https://raw.githubusercontent.com/ArthurSenpaii/ChachiDB/master/Chachi/cromulonhead.png");
+        .setThumbnail("https://raw.githubusercontent.com/ArthurSenpaii/ChachiDB/master/Chachi/media/cromulonhead.png");
     videos.forEach(function (v) {
         embed.addField(v.title, `By ${v.author.name},\t duration: ${v.timestamp}, \t views: ${v.views}`);
     });
 
-    msg.channel.send("Here your search señor", { embed });
-    msg.channel.send("Answer by 1, 2, ou 3")
+    msg.channel.send("Voici votre recherche señor", { embed });
+    msg.channel.send("Repond juste par 1, 2, ou 3")
 
     const filter = m => !isNaN(m.content) && m.content < videos.length + 1 && m.content > 0; //check if the value answered by user is correct
 
