@@ -9,14 +9,13 @@ exports.run = (_callback) => {
         _callback(gay+"% 😢")
     }
     if (gay > 25 && gay < 50) {
-        _callback(gay+"% chachi t'aime bien 😏")
+        _callback(gay+"% chachi loves you 😏")
     } 
     if (gay >= 50 && gay != 100) {
-        msg.channel.send(msg.author.toString() + " " +gay + "% <:gay_pride_flag:639762396532965379> chachi en LOVE de TWA");
-        _callback(gay+"% chachi en LOVE de TWA 🥵")
+        _callback(gay+"% chachi is in love 🥵")
     }
     if (gay === 100) {
-        _callback(gay + "% Tu serais le roi sur la planète de Chachi !")
+        _callback(gay + "% You will be the kind of Chachi's land !")
     }
 
 }
