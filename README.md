@@ -1,7 +1,6 @@
-# ChachiDB
-###### Is a NodeJS discord bot. Also supports Twitter.   
+# My discord JS bot
+### Coded with Nodejs, this discord bot do basic stuff like play song in channels or just say (in percent) how much you're gay/hetero.
 
-## Pst, How I use it ?
-#### Listen kiddo, first step you need node.js and a host machine, then install dependencies with the package-lock.json file. After this, you need to complete the config.json file with token and Id (more info in the file). 
-
-And, Here we go. 🍄
+# He's named Chachi
+### Because is a cool name, and because Chachi is a very famous and known pop culture caracter. (WRONG)
+![alt text](https://github.com/ArthurSenpaii/discord-bot/blob/master/Chachi/media/chachi.png?raw=true)
