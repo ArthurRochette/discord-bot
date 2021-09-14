@@ -12,7 +12,7 @@ bot.on('ready', () => {
 
 bot.on('message', msg => {
 
-	if (msg.author.equals(bot.user)) return; // return si own message (seems logic no ??)
+	if (msg.author.equals(bot.user)) return; // return if own message 
 
 	if (msg.channel.type === "dm") {// if private message
 		if (msg.content.startsWith("confess")) {
@@ -36,8 +36,8 @@ bot.on('message', msg => {
 	}
 
 
-	if (msg.content.startsWith(config.prefix)) { //mention of the bot
-		var args = msg.content.substring(config.prefix.length).split(" ");// so clear him ! WE DON'T MORE NEED THAT 
+	if (msg.content.startsWith(config.prefix)) { 
+		var args = msg.content.substring(config.prefix.length).split(" ");// bot will  not answer his own message (infinit loop)
 
 		if (args[1] === undefined) { // if the message is not identified, we don't know why ¯\_(ツ)_/¯ but in case of we don't know
 			msg.react("😏");
@@ -46,7 +46,7 @@ bot.on('message', msg => {
 		const command = args[1].toLowerCase(); // normalization of the received message (lower case)
 		var date = new Date();
 
-		console.log("message de " + msg.author.username + " a " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());//console log
+		console.log("message de " + msg.author.username + " a " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
 
 		//lets try if a .js function file is named with the lowered case command 
 		try {
